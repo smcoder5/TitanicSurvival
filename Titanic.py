@@ -1,6 +1,6 @@
 import streamlit as s
 import pandas as p
-from sklearn import linear_model
+#from sklearn import linear_model
 import numpy as n
 from sklearn.model_selection import train_test_split as tts
 from sklearn.neighbors import KNeighborsClassifier as knc
