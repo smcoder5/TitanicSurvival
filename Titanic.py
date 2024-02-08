@@ -7,7 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier as knc
 from sklearn.metrics import accuracy_score as as1
 from sklearn.preprocessing import StandardScaler
 
-
+##     https://discuss.streamlit.io/t/no-module-named-sklearn/9218/20
 def model():
     a=p.read_csv('titanic_data.csv')
     gend= {"male": 0, "female": 1}
