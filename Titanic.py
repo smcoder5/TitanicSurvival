@@ -40,6 +40,6 @@ if __name__ == "__main__":
         cls=s.selectbox("Please Enter the Class of Passenger",[1,2,3]) 
     cl=s.columns([1,1])
     with cl[0]:
-        parch=s.number_input("Enter number of parents / children boarded")
+        parch=s.number_input("Enter number of parents / children boarded",min_value=0, max_value=9, step=1)
     with cl[1]:
-        sib=s.number_input("Enter number of siblings / spouses ")
+        sib=s.number_input("Enter number of siblings / spouses ",min_value=0, max_value=9, step=1)
