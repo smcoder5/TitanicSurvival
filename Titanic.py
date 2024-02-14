@@ -3,7 +3,7 @@ import pandas as p
 from sklearn import linear_model
 import numpy as n
 from sklearn.model_selection import train_test_split as tts
-from sklearn.neighbors import KNeighborsClassifier as knc
+from sklearn.neighbors import KNeighborsClassifier as KNC
 from sklearn.metrics import accuracy_score as as1
 from sklearn.preprocessing import StandardScaler
 
@@ -22,7 +22,7 @@ def model():
     
     x,y=n.array(d[['Age','Fare','Parch','SibSp','Embarked','Pclass','Sex']]).reshape([-1,7]),n.array(d['Survived'])
     xn,xt,yn,yt=tts(x,y,test_size=0.3, random_state=42) 
-    knc=knc(5)
+    knc=KNC(5)
     mod=knc.fit(xn,yn) 
     return mod
 
