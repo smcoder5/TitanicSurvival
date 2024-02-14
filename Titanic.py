@@ -35,13 +35,28 @@ if __name__ == "__main__":
     with cl[0]:
         gen=s.selectbox("Enter Gender",['Male','Female']) 
     with cl[1]:
-        por=s.selectbox("Please Enter the port Embarked",['Cherbourg',  'Queenstown', 'Southampton']) 
+        port=s.selectbox("Please Enter the port Embarked",['Cherbourg',  'Queenstown', 'Southampton']) 
     with cl[2]:
         cls=s.selectbox("Please Enter the Class of Passenger",[1,2,3]) 
     cl=s.columns([1,1])
     with cl[0]:
-        parch=s.number_input("Enter number of parents / children boarded",min_value=0, max_value=9, step=1)
+        parch=s.number_input("Enter number of parents / children boarded",min_value=0, max_value=95, step=1)
     with cl[1]:
         sib=s.number_input("Enter number of siblings / spouses ",min_value=0, max_value=9, step=1) 
     age=s.slider("Enter the age of Passenger",min_value=0, max_value=90)
-    fare=s.slider("Enter the Fare charges of Passenger",min_value=0, max_value=750)
+    fare=s.slider("Enter the Fare charges of Passenger",min_value=0, max_value=750) 
+    gend= {"Male": 0, "Female": 1}
+    ports = {"S": 0, "C": 1, "Q": 2}
+
+    gen=gend[gen]
+    port=ports[port[0]] 
+    l=[[age,fare,parch,sib,port,cls,gen]] 
+    if(s.button("Predict", type="primary")):
+        
+        mod=model() 
+        if(mod.predict(l)):
+            s.write("Given Passenger has Survived.")
+        else:
+            s.write("Given Passenger has not Survived.")
+    
+
